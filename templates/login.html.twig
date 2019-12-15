@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class='background_blure'></div>
+    <div class='clyde_message_login'>
+        <ul class='clyde_message'>
+            <a>Выбор: Активирован*(?*:%)<br><br>
+                {% if error %}
+                    <li class=clyde_message_info ><b>{{ error.messageKey|trans(error.messageData, 'security') }}</b></li>
+                {% endif %}
+
+        </ul>
+    </div>
+    <form class="autorise_box" method="post" action="sign-in">
+        <a href="/"></a>
+        <input type="text" name="name" id="inputName" class="form-control" required autofocus placeholder="Имя">
+        <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="Пароль">
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+
+        <div class="remember_user">
+            <label>
+                <input class="checkbox" type="checkbox" name="_remember_me" > Запонить меня.
+            </label>
+        </div>
+
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        Вход
+    </button>
+</form>
+{% endblock %}

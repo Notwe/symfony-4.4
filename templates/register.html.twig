@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script src="{{ asset('js/account/authorize.js') }}"></script>
+    <div class='background_blure'></div>
+    <div class='clyde_message_login'>
+        <ul class='clyde_message'>
+            <a>Выбор: Активирован*(?*:%)<br><br>
+                <b>Введите ваши данные</b></a>
+        </ul>
+    </div>
+
+    {{ form_start(registrationForm, {
+        attr:{
+            'class': 'register_form'
+            }
+        })
+    }}
+    <a href="/"></a>
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.password) }}
+        {{ form_row(registrationForm.send) }}
+    {{ form_end(registrationForm) }}
+{% endblock %}
